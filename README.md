@@ -35,7 +35,64 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+import pandas as pd
+df=pd.read_csv("Encoding Data.csv")
+df
+```
+![1](https://github.com/user-attachments/assets/cc4ecbc8-b3a6-48bc-8eb0-9837edf97ed6)
+
+```
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
+pm=['Hot','Warm','Cold']
+e1=OrdinalEncoder(categories=[pm])
+e1.fit_transform(df[["ord_2"]])
+```
+![2](https://github.com/user-attachments/assets/fc5870c2-2886-459a-8395-57680c613347)
+
+```
+df['bo2']=e1.fit_transform(df[["ord_2"]])
+df
+```
+![3](https://github.com/user-attachments/assets/a7ca1a5e-6a00-41f0-b654-97e6f421d121)
+
+```
+le=LabelEncoder()
+dfc=df.copy()
+dfc['ord_2']=le.fit_transform(dfc['ord_2'])
+dfc
+```
+![4](https://github.com/user-attachments/assets/9f22c909-0b5a-4fc7-8691-79728ec85b7f)
+
+```
+from sklearn.preprocessing import OneHotEncoder
+# Use sparse_output=False instead of sparse=False
+ohe = OneHotEncoder(sparse_output=False)
+df2 = df.copy()
+enc = pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
+```
+```
+df2=pd.concat([df2,enc],axis=1)
+df2
+```
+![6](https://github.com/user-attachments/assets/345869e0-c6a0-442c-a1e0-2920118e8f32)
+
+```
+pd.get_dummies(df2,columns=["nom_0"])
+```
+![7](https://github.com/user-attachments/assets/727d6aa4-6c2f-4c63-b3c5-da3db5e9ee2f)
+
+```
+pip install --upgrade category_encoders
+```
+```
+from category_encoders import BinaryEncoder
+df=pd.read_csv("dt.csv")
+df
+```
+![9](https://github.com/user-attachments/assets/6c2501ec-858e-4fe5-8e9e-d8c8216e551f)
+
+
 # RESULT:
        # INCLUDE YOUR RESULT HERE
 
