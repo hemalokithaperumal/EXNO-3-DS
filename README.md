@@ -149,13 +149,16 @@ plt.show()
 ```
 
 ![image](https://github.com/user-attachments/assets/93b1e932-4e17-4d34-934e-093705d0aa72)
+
 ```
 sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
 plt.show()
+
 ```
+
 ![image](https://github.com/user-attachments/assets/e14553fb-d32c-42fd-9d93-bfe1a083da19)
 
-## RESULT:
+# RESULT:
 
        Thus the given data, Feature Encoding, Transformation process and save the data to a file was performed successfully.
 
